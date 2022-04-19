@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://screens/Main.theme" type="Theme" id=1]
+[ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 100
+border_width_top = 6
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="PauseMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.141176, 0.141176, 0.141176, 0.733333 )
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/CenterContainer"]
+margin_left = 784.0
+margin_top = 413.0
+margin_right = 1135.0
+margin_bottom = 666.0
+
+[node name="Label" type="Label" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_right = 351.0
+margin_bottom = 39.0
+text = "PAUSE"
+align = 1
+
+[node name="Control" type="Control" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 351.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="ResumeBtn" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_top = 147.0
+margin_right = 351.0
+margin_bottom = 186.0
+custom_styles/pressed = SubResource( 1 )
+text = "RESUME"
+
+[node name="Control2" type="Control" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_top = 190.0
+margin_right = 351.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="MainMenuBtn" type="Button" parent="PauseMenu/CenterContainer/VBoxContainer"]
+margin_top = 214.0
+margin_right = 351.0
+margin_bottom = 253.0
+text = "MAIN MENU"
+
+[connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/ResumeBtn" to="PauseMenu" method="_on_ResumeBtn_pressed"]
+[connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/MainMenuBtn" to="PauseMenu" method="_on_MainMenuBtn_pressed"]

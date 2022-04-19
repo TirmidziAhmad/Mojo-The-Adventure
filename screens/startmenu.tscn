@@ -1,0 +1,362 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scripts/startmenu.gd" type="Script" id=1]
+[ext_resource path="res://screens/Main.theme" type="Theme" id=2]
+[ext_resource path="res://assets/Icons/next button.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/PressStart2P.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=8]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="InputEventAction" id=2]
+action = "start"
+
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 2 )
+
+[sub_resource type="InputEventAction" id=4]
+action = "settings"
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
+
+[sub_resource type="InputEventAction" id=6]
+action = "quit"
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[node name="StartMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = -2.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 2.0
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -832.0
+margin_top = 128.0
+margin_right = 100.0
+margin_bottom = 335.0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 8 )
+text = "Mojo The Adventure"
+valign = 1
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 130.0
+margin_top = -180.0
+margin_right = 530.0
+margin_bottom = 376.0
+rect_min_size = Vector2( 400, 400 )
+
+[node name="StartBtn" type="Button" parent="MainMenu"]
+margin_right = 400.0
+margin_bottom = 89.0
+focus_neighbour_top = NodePath("../QuitBtn")
+focus_neighbour_bottom = NodePath("../InventoryBtn")
+size_flags_vertical = 3
+shortcut = SubResource( 3 )
+text = "Start"
+align = 0
+
+[node name="LoadBtn" type="Button" parent="MainMenu"]
+margin_top = 93.0
+margin_right = 400.0
+margin_bottom = 182.0
+focus_neighbour_top = NodePath("../QuitBtn")
+focus_neighbour_bottom = NodePath("../InventoryBtn")
+size_flags_vertical = 3
+shortcut = SubResource( 3 )
+text = "Load"
+align = 0
+
+[node name="InventoryBtn" type="Button" parent="MainMenu"]
+margin_top = 186.0
+margin_right = 400.0
+margin_bottom = 276.0
+focus_neighbour_top = NodePath("../StartBtn")
+focus_neighbour_bottom = NodePath("../ShopBtn")
+size_flags_vertical = 3
+shortcut = SubResource( 5 )
+text = "Inventory"
+align = 0
+
+[node name="ShopBtn" type="Button" parent="MainMenu"]
+margin_top = 280.0
+margin_right = 400.0
+margin_bottom = 369.0
+focus_neighbour_top = NodePath("../InventoryBtn")
+focus_neighbour_bottom = NodePath("../SettingsBtn")
+size_flags_vertical = 3
+shortcut = SubResource( 5 )
+text = "Shop"
+align = 0
+
+[node name="SettingsBtn" type="Button" parent="MainMenu"]
+margin_top = 373.0
+margin_right = 400.0
+margin_bottom = 462.0
+focus_neighbour_top = NodePath("../ShopBtn")
+focus_neighbour_bottom = NodePath("../QuitBtn")
+size_flags_vertical = 3
+shortcut = SubResource( 5 )
+text = "Settings"
+align = 0
+
+[node name="QuitBtn" type="Button" parent="MainMenu"]
+margin_top = 466.0
+margin_right = 400.0
+margin_bottom = 556.0
+focus_neighbour_top = NodePath("../SettingsBtn")
+focus_neighbour_bottom = NodePath("../StartBtn")
+size_flags_vertical = 3
+shortcut = SubResource( 7 )
+text = "Quit"
+align = 0
+
+[node name="SettingsMenu" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -6.0
+margin_right = -6.0
+
+[node name="ColorRect" type="ColorRect" parent="SettingsMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = -2.0
+margin_right = -2.0
+margin_bottom = -2.0
+color = Color( 0.133333, 0.129412, 0.203922, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BackBtn" type="Button" parent="SettingsMenu"]
+margin_left = 128.0
+margin_top = 64.0
+margin_right = 438.0
+margin_bottom = 374.0
+rect_scale = Vector2( 0.2, 0.2 )
+
+[node name="TextureRect" type="TextureRect" parent="SettingsMenu/BackBtn"]
+margin_right = 512.0
+margin_bottom = 512.0
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 3 )
+flip_h = true
+
+[node name="Label" type="Label" parent="SettingsMenu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -122.0
+margin_top = 74.0
+margin_right = 190.0
+margin_bottom = 152.0
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="MainMenu2" type="VBoxContainer" parent="SettingsMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -785.0
+margin_top = -287.0
+margin_right = 793.0
+margin_bottom = 326.0
+size_flags_horizontal = 5
+custom_constants/separation = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/MainMenu2"]
+margin_right = 1578.0
+margin_bottom = 39.0
+custom_constants/separation = 25
+alignment = 1
+
+[node name="VideoBtn" type="Button" parent="SettingsMenu/MainMenu2/HBoxContainer"]
+margin_right = 509.0
+margin_bottom = 39.0
+focus_neighbour_left = NodePath("../ControlsBtn")
+focus_neighbour_right = NodePath("../AudioBtn")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Video"
+
+[node name="AudioBtn" type="Button" parent="SettingsMenu/MainMenu2/HBoxContainer"]
+margin_left = 534.0
+margin_right = 1043.0
+margin_bottom = 39.0
+focus_neighbour_left = NodePath("../VideoBtn")
+focus_neighbour_right = NodePath("../ControlsBtn")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Audio"
+
+[node name="ControlsBtn" type="Button" parent="SettingsMenu/MainMenu2/HBoxContainer"]
+margin_left = 1068.0
+margin_right = 1578.0
+margin_bottom = 39.0
+focus_neighbour_left = NodePath("../AudioBtn")
+focus_neighbour_right = NodePath("../VideoBtn")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Controls"
+
+[node name="SettingsContainer" type="VBoxContainer" parent="SettingsMenu/MainMenu2"]
+margin_top = 64.0
+margin_right = 1578.0
+margin_bottom = 339.0
+
+[node name="VideoSettings" type="GridContainer" parent="SettingsMenu/MainMenu2/SettingsContainer"]
+margin_right = 1578.0
+margin_bottom = 178.0
+rect_min_size = Vector2( 640, 0 )
+custom_constants/vseparation = 25
+custom_constants/hseparation = 25
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SettingsMenu/MainMenu2/SettingsContainer/VideoSettings"]
+margin_top = 5.0
+margin_right = 1107.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+text = "Vsync"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsMenu/MainMenu2/SettingsContainer/VideoSettings"]
+margin_left = 1478.0
+margin_right = 1578.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 50 )
+size_flags_horizontal = 8
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="SettingsMenu/MainMenu2/SettingsContainer/VideoSettings"]
+margin_top = 75.0
+margin_right = 1107.0
+margin_bottom = 114.0
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="CheckBox" type="CheckBox" parent="SettingsMenu/MainMenu2/SettingsContainer/VideoSettings"]
+margin_left = 1479.0
+margin_top = 75.0
+margin_right = 1578.0
+margin_bottom = 114.0
+size_flags_horizontal = 8
+text = "on"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="SettingsMenu/MainMenu2/SettingsContainer/VideoSettings"]
+margin_top = 139.0
+margin_right = 1107.0
+margin_bottom = 178.0
+size_flags_horizontal = 3
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsMenu/MainMenu2/SettingsContainer/VideoSettings"]
+margin_left = 1132.0
+margin_top = 139.0
+margin_right = 1578.0
+margin_bottom = 178.0
+size_flags_horizontal = 8
+text = "1920 * 1080"
+items = [ "1920 * 1080", null, false, 0, null, " 980 * 540", null, false, 1, null ]
+selected = 0
+
+[node name="AudioSettings" type="GridContainer" parent="SettingsMenu/MainMenu2/SettingsContainer"]
+margin_top = 182.0
+margin_right = 1578.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 640, 0 )
+custom_constants/vseparation = 25
+custom_constants/hseparation = 25
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SettingsMenu/MainMenu2/SettingsContainer/AudioSettings"]
+margin_top = 5.0
+margin_right = 1253.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+text = "Audio"
+
+[node name="HSlider" type="HSlider" parent="SettingsMenu/MainMenu2/SettingsContainer/AudioSettings"]
+margin_left = 1278.0
+margin_right = 1578.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 300, 50 )
+
+[node name="ControlsSettings" type="GridContainer" parent="SettingsMenu/MainMenu2/SettingsContainer"]
+margin_top = 236.0
+margin_right = 1578.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 640, 0 )
+custom_constants/vseparation = 25
+custom_constants/hseparation = 25
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SettingsMenu/MainMenu2/SettingsContainer/ControlsSettings"]
+margin_right = 1302.0
+margin_bottom = 39.0
+size_flags_horizontal = 3
+text = "Controls"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsMenu/MainMenu2/SettingsContainer/ControlsSettings"]
+margin_left = 1327.0
+margin_right = 1578.0
+margin_bottom = 39.0
+text = "Joypad"
+items = [ "Joypad", null, false, 0, null, "Keyboard", null, false, 1, null, "Joystick", null, false, 2, null ]
+selected = 0
+
+[node name="InventoryMenu" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[connection signal="pressed" from="MainMenu/StartBtn" to="." method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="MainMenu/LoadBtn" to="." method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="MainMenu/InventoryBtn" to="." method="_on_SettingsBtn_pressed"]
+[connection signal="pressed" from="MainMenu/ShopBtn" to="." method="_on_SettingsBtn_pressed"]
+[connection signal="pressed" from="MainMenu/SettingsBtn" to="." method="_on_SettingsBtn_pressed"]
+[connection signal="pressed" from="MainMenu/QuitBtn" to="." method="_on_QuitBtn_pressed"]
+[connection signal="pressed" from="SettingsMenu/BackBtn" to="." method="_on_BackBtn_pressed"]
+[connection signal="pressed" from="SettingsMenu/MainMenu2/HBoxContainer/VideoBtn" to="." method="_on_VideoBtn_pressed"]
+[connection signal="pressed" from="SettingsMenu/MainMenu2/HBoxContainer/AudioBtn" to="." method="_on_AudioBtn_pressed"]
+[connection signal="pressed" from="SettingsMenu/MainMenu2/HBoxContainer/ControlsBtn" to="." method="_on_ControlsBtn_pressed"]

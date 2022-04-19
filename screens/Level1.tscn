@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://screens/Main.theme" type="Theme" id=1]
+[ext_resource path="res://scripts/Level1.gd" type="Script" id=2]
+
+[node name="Level1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1920.0
+margin_bottom = -1080.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 806.0
+margin_top = 126.0
+margin_right = 1110.0
+margin_bottom = 228.0
+theme = ExtResource( 1 )
+text = "Level 1"
+align = 1
+
+[node name="PauseBtn" type="Button" parent="."]
+margin_left = 784.0
+margin_top = 515.0
+margin_right = 1135.0
+margin_bottom = 554.0
+theme = ExtResource( 1 )
+text = "Main menu"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1919.0
+margin_bottom = 1069.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 959.0
+margin_top = 534.0
+margin_right = 959.0
+margin_bottom = 534.0
+
+[connection signal="pressed" from="PauseBtn" to="." method="_on_PauseBtn_pressed"]
